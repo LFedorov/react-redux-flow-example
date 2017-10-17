@@ -1,27 +1,27 @@
 // @flow
 
-import * as React from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import * as React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import type { StoreState } from "../store";
-import { increment, decrement } from "../store/calc/actions";
+import type { StoreState } from '../store';
+import { increment, decrement } from '../store/calc/actions';
 
-import { Button } from "../components/button";
+import { Button } from '../components/button';
 
 type AppProps = {
   amount?: number,
   onIncrement?: (amount: number) => void,
-  onDecrement?: (amount: number) => void
+  onDecrement?: (amount: number) => void,
 };
 
 type AppState = {
-  amount: number
+  amount: number,
 };
 
 class App extends React.Component<AppProps, AppState> {
   state: AppState = {
-    amount: 1
+    amount: 1,
   };
 
   onIncrementStore = () => {
@@ -38,13 +38,13 @@ class App extends React.Component<AppProps, AppState> {
 
   onIncrementState = () => {
     this.setState(prevState => ({
-      amount: prevState.amount + 1
+      amount: prevState.amount + 1,
     }));
   };
 
   onDecrementState = () => {
     this.setState(prevState => ({
-      amount: prevState.amount - 1
+      amount: prevState.amount - 1,
     }));
   };
 
@@ -69,17 +69,17 @@ class App extends React.Component<AppProps, AppState> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  amount: state.calc.amount
+  amount: state.calc.amount,
 });
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(
     {
       onIncrement: increment,
-      onDecrement: decrement
+      onDecrement: decrement,
     },
-    dispatch
-  )
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

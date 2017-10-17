@@ -1,5 +1,5 @@
 // @flow
 
 export type CalcState = {
-  amount: number
+  amount: number,
 };
