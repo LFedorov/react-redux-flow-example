@@ -1,17 +1,17 @@
 // @flow
 
-import type { Action } from "./actions";
-import type { CalcState } from "./state";
+import type { Action } from './actions';
+import type { CalcState } from './state';
 
-import * as types from "./types";
+import * as types from './types';
 
 const State: CalcState = {
-  amount: 0
+  amount: 0,
 };
 
 export function CalcReducer(
   state: CalcState = State,
-  action: Action
+  action: Action,
 ): CalcState {
   switch (action.type) {
     case types.INCREMENT:
